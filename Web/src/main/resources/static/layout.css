@@ -1,0 +1,48 @@
+#sticky-footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+}
+
+.sidenav {
+    width: 160px;
+    position: absolute;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 20px;
+    height: 100%;
+}
+
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.app-container {
+    margin-left: 160px;
+    padding: 0px 10px;
+    margin-bottom: 60px;
+}
+
+.register-container {
+    margin-bottom: 60px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+.button-container {
+    margin-top: 5px;
+}

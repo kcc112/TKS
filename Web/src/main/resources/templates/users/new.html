@@ -1,0 +1,37 @@
+<div th:fragment="new" xmlns:th="http://www.w3.org/1999/xhtml" class="d-flex justify-content-center">
+    <div class="d-flex flex-column">
+        <h1 th:text="#{addNewUser}"></h1>
+        <form class="form-group" action="#" th:action="@{/users}" th:object="${user}" method="post">
+
+            <label for="userEmail" title="Email" th:text="#{userEmail}"></label>
+            <input class="form-control" id="userEmail" type="text" th:field="*{userEmail}"/>
+            <div th:if="${#fields.hasErrors('userEmail')}" th:errors="*{userEmail}" class="alert alert-danger" role="alert"></div>
+
+            <label for="userName" title="Name" th:text="#{userName}"></label>
+            <input class="form-control" id="userName" type="text" th:field="*{userName}"/>
+            <div th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}" class="alert alert-danger" role="alert"></div>
+
+            <label for="userSurname" title="Surname" th:text="#{userSurname}"></label>
+            <input class="form-control" id="userSurname" type="text" th:field="*{userSurname}" />
+            <div th:if="${#fields.hasErrors('userSurname')}" th:errors="*{userSurname}" class="alert alert-danger" role="alert"></div>
+
+            <label for="password" title="Password" th:text="#{password}"></label>
+            <input class="form-control" id="password" type="password" th:field="*{password}" />
+            <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="alert alert-danger" role="alert"></div>
+
+            <label for="selectType" th:text="#{userType}"></label>
+            <select class="form-control" id="selectType" th:field="*{userType}">
+                <option value="ADMIN">Admin</option>
+                <option value="CLIENT">Client</option>
+                <option value="RESOURCE_ADMINISTRATOR">ResourceAdministrator</option>
+            </select>
+
+            <div class="g-recaptcha" data-sitekey="6Lf7pMoUAAAAAIrDBgLVZS6SAnvTffmT9zr_PBiU"></div>
+
+            <div class="button-container">
+                <input class="btn btn-primary" type="submit" th:value="#{submit}" />
+                <input class="btn btn-danger" type="reset" th:value="#{reset}" />
+            </div>
+        </form>
+    </div>
+</div>

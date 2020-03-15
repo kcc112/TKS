@@ -1,0 +1,52 @@
+<div th:fragment="index" xmlns:th="http://www.w3.org/1999/xhtml">
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col" th:text="#{name}"></th>
+            <th scope="col" th:text="#{surname}"></th>
+            <th scope="col" th:text="#{technologyName}"></th>
+            <th scope="col" th:text="#{remove}"></th>
+            <th scope="col" th:text="#{edit}"></th>
+            <th scope="col" th:text="#{info}"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${developers.empty}">
+            <td colspan="2" th:text="#{empty}"></td>
+        </tr>
+        <tr th:each="developer : ${developers}">
+            <td>
+                <span th:text="${developer.developerName}"></span>
+            </td>
+            <td>
+                <span th:text="${developer.developerSurname}"></span>
+            </td>
+            <td>
+                <span th:text="${developer.developerTechnology.technologyName}"></span>
+            </td>
+            <td>
+                <form th:action="@{/developers/{id}/delete(id=${developer.developerId})}" th:method="post">
+                    <input class="btn btn-danger" type="submit" th:value="#{remove}" />
+                </form>
+            </td>
+            <td>
+                <form th:action="@{/developers/{id}/edit(id=${developer.developerId})}" th:method="get">
+                    <input class="btn btn-secondary" type="submit" th:value="#{edit}" />
+                </form>
+            </td>
+            <td>
+                <form th:action="@{/developers/{id}/info(id=${developer.developerId})}" th:method="get">
+                    <input class="btn btn-secondary" type="submit" th:value="#{info}" />
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <form th:action="@{/developers/new/front-end}">
+        <input class="btn btn-success" type="submit" th:value="#{addFrontEndDeveloper}" />
+    </form>
+    <br/>
+    <form th:action="@{/developers/new/back-end}">
+        <input class="btn btn-success" type="submit" th:value="#{addBackEndDeveloper}" />
+    </form>
+</div>

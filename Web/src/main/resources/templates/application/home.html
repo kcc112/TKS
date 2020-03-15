@@ -1,0 +1,8 @@
+<div th:fragment="home" class="app-container" xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+     xmlns:th="http://www.w3.org/1999/xhtml">
+    <div class="d-flex justify-content-center">
+        <h1 sec:authentication="principal.username"></h1>
+        <h1 sec:authentication="principal.authorities"></h1>
+    </div>
+</div>
+

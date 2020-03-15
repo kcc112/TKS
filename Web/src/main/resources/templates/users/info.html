@@ -1,0 +1,64 @@
+<div th:fragment="info" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div class="d-flex flex-column">
+        <h1 th:text="#{userInfo}"></h1>
+        <table class="table">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col" th:text="#{name}"></th>
+                <th scope="col" th:text="#{surname}"></th>
+                <th scope="col" th:text="#{type}"></th>
+                <th scope="col" th:text="#{isActive}"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <span th:text="${user.userName}"></span>
+                </td>
+                <td>
+                    <span th:text="${user.userSurname}"></span>
+                </td>
+                <td>
+                    <span th:text="${user.userType}"></span>
+                </td>
+                <td>
+                    <span th:text="${user.isActive}"></span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div th:if="${(user instanceof T(com.pas.pas.com.com.init.xd.com.model.users.Client)) && !user.getEvents().isEmpty()}" >
+            <h1 th:text="#{userEvents}"></h1>
+            <table class="table">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col" th:text="#{name}"></th>
+                    <th scope="col" th:text="#{surname}"></th>
+                    <th scope="col" th:text="#{technologyName}"></th>
+                    <th scope="col" th:text="#{startDate}"></th>
+                    <th scope="col" th:text="#{endDate}"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="event : ${user.getEvents()}">
+                    <td>
+                        <span th:text="${event.developer.developerName}"></span>
+                    </td>
+                    <td>
+                        <span th:text="${event.developer.developerSurname}"></span>
+                    </td>
+                    <td>
+                        <span th:text="${event.developer.developerTechnology.technologyName}"></span>
+                    </td>
+                    <td>
+                        <span th:text="${event.startDate}"></span>
+                    </td>
+                    <td>
+                        <span th:text="${event.endDate}" ></span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

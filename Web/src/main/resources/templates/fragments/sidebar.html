@@ -1,0 +1,9 @@
+<div th:fragment="sidebar" class="d-flex align-items-stretch" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div class="sidenav">
+        <a sec:authorized="isAuthenticated()" class="nav-link" th:href="@{/home}" th:text="#{home}"></a>
+        <a sec:authorize="hasRole('ROLE_RESOURCE_ADMINISTRATOR')" class="nav-link" th:href="@{/developers}" th:text="#{developers}"></a>
+        <a sec:authorize="hasRole('ROLE_ADMIN')" class="nav-link" th:href="@{/users}" th:text="#{users}"></a>
+        <a sec:authorize="hasAnyRole('ROLE_CLIENT', 'ROLE_ADMIN')" class="nav-link" th:href="@{/events}" th:text="#{events}"></a>
+        <a sec:authorized="isAuthenticated()" class="nav-link" th:href="@{/technologies}" th:text="#{technologies}"></a>
+    </div>
+</div>

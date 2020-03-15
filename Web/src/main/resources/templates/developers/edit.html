@@ -1,0 +1,33 @@
+<div th:fragment="edit" xmlns:th="http://www.w3.org/1999/xhtml" class="d-flex justify-content-center">
+    <div class="d-flex flex-column">
+        <h1 th:text="#{editDeveloper}"></h1>
+        <form class="form-group" action="#" th:action="@{/developers/{id}/{type}(id=${developer.developerId}, type=${developerType.type})}" th:object="${developer}" method="post">
+
+            <input type="hidden" th:field="${developerType.type}" th:value="${developerType.type}">
+
+            <label for="developerName" title="Name" th:text="#{developerName}"></label>
+            <input class="form-control"  id="developerName" type="text" th:field="*{developerName}"/>
+            <div th:if="${#fields.hasErrors('developerName')}" th:errors="*{developerName}" class="alert alert-danger" role="alert"></div>
+
+            <label for="developerSurname" title="Surname" th:text="#{developerSurname}"></label>
+            <input class="form-control" id="developerSurname" type="text" th:field="*{developerSurname}" />
+            <div th:if="${#fields.hasErrors('developerSurname')}" th:errors="*{developerSurname}" class="alert alert-danger" role="alert"></div>
+
+            <div th:if="${(developer instanceof T(com.pas.pas.com.com.init.com.developers.FrontEnd))}">
+                <label for="dummyAttribute" title="DummyAttribute" th:field="#{dummyAttribute}"></label>
+                <input class="form-control"  id="dummyAttribute" type="text" th:field="${developer.dummyAttribute}" />
+            </div>
+
+            <label for="selectType" th:text="#{selectTechnology}"></label>
+            <select class="form-control" id="selectType" th:field="${technology.technologyName}">
+                <option th:each="technology : ${technologies}" th:value="${technology.technologyName}"  th:text="${technology.technologyName}"></option>
+            </select>
+
+            <div class="button-container">
+                <input class="btn btn-primary" type="submit" th:value="#{submit}" />
+                <input class="btn btn-danger" type="reset" th:value="#{reset}" />
+            </div>
+
+        </form>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+<div th:fragment="edit" xmlns:th="http://www.w3.org/1999/xhtml" class="d-flex justify-content-center">
+    <div class="d-flex flex-column">
+        <h1 th:text="#{editUser}"></h1>
+        <div id="error" class="alert alert-danger" role="alert" ></div>
+        <form id="edit-form" class="form-group" action="#" th:action="@{/users/{id}(id=${user.userId})}" th:object="${user}" method="post">
+
+            <label for="userName" title="Name" th:text="#{userName}"></label>
+            <input class="form-control" id="userName" type="text" th:field="*{userName}" required/>
+            <div th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}" class="alert alert-danger" role="alert"></div>
+
+            <label for="userSurname" title="Surname" th:text="#{userSurname}"></label>
+            <input class="form-control" id="userSurname" type="text" th:field="*{userSurname}" required/>
+            <div th:if="${#fields.hasErrors('userSurname')}" th:errors="*{userSurname}" class="alert alert-danger" role="alert"></div>
+
+            <div class="button-container">
+                <input class="btn btn-primary" type="submit" th:value="#{submit}" />
+                <input class="btn btn-danger" type="reset" th:value="#{reset}" />
+            </div>
+        </form>
+    </div>
+    <script type="text/javascript" th:src="@{/js/edit_user.js}"></script>
+</div>
