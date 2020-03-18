@@ -3,13 +3,13 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>hex-arch</artifactId>
+        <artifactId>ApplicationCore</artifactId>
         <groupId>com.hex</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>Web</artifactId>
+    <artifactId>WebCore</artifactId>
     <packaging>jar</packaging>
 
     <dependencies>
@@ -21,11 +21,6 @@
         <dependency>
             <groupId>com.hex</groupId>
             <artifactId>RepositoriesAdapters</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.hex</groupId>
-            <artifactId>DomainModel</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
