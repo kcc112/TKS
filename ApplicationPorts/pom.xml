@@ -15,7 +15,7 @@
     <dependencies>
         <dependency>
             <groupId>com.hex</groupId>
-            <artifactId>ApplicationCore</artifactId>
+            <artifactId>DomainModel</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
