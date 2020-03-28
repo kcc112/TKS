@@ -18,8 +18,8 @@ import java.util.Optional;
 import static hex.adapters.converter.ToDomainConverterTechnology.convertTechnology;
 
 @Component
-public class TechnologyRepositoryAdapter implements IGetAllTechnologies<Technology>,
-        IGetAllTechnologiesBackEnd<Technology>, IGetAllTechnologiesFrontEnd<Technology>, ISelectTechnologyByName<Technology> {
+public class TechnologyRepositoryAdapter implements IGetAllTechnologies,
+        IGetAllTechnologiesBackEnd, IGetAllTechnologiesFrontEnd, ISelectTechnologyByName {
 
     private final ITechnologyRepositoryEnt technologyRepositoryEnt;
 
