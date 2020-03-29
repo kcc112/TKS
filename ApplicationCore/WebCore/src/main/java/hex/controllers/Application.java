@@ -17,7 +17,7 @@ public class Application {
 
     @GetMapping("login")
     public String login() {
-        return "application/login";
+        return "login-hex";
     }
 
     @GetMapping("register")

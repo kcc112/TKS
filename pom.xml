@@ -7,6 +7,8 @@
         <module>RepositoriesAdapters</module>
         <module>ApplicationPorts</module>
         <module>ApplicationCore</module>
+        <module>REST</module>
+        <module>WebApp</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

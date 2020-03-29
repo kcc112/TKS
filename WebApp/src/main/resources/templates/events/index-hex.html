@@ -1,0 +1,46 @@
+<div th:fragment="index" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col" th:text="#{startDate}"></th>
+            <th scope="col" th:text="#{endDate}"></th>
+            <th scope="col" th:text="#{user}"></th>
+            <th scope="col" th:text="#{developer}"></th>
+            <th scope="col" th:text="#{remove}"></th>
+            <th scope="col" th:text="#{edit}"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${events.empty}">
+            <td colspan="2" th:text="#{empty}">empty</td>
+        </tr>
+        <tr th:each="event : ${events}">
+            <td>
+                <span th:text="${event.startDate}"></span>
+            </td>
+            <td>
+                <span th:text="${event.endDate}" ></span>
+            </td>
+            <td>
+                <span th:text="${event.user.userName}"></span>
+            </td>
+            <td>
+                <span th:text="${event.developer}"></span>
+            </td>
+            <td>
+                <form th:if="${event.endDate == null}" th:action="@{/events/{id}/delete(id=${event.id})}" th:method="delete">
+                    <input class="btn btn-danger" type="submit" th:value="#{remove}" />
+                </form>
+            </td>
+            <td>
+                <form th:if="${event.endDate == null}" th:action="@{/events/{id}/end(id=${event.id})}" method="post">
+                    <input class="btn btn-secondary"  type="submit" th:value="#{end}" />
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <form sec:authorize="hasRole('ROLE_CLIENT')"  th:action="@{/events/new}">
+        <input class="btn btn-success" type="submit" th:value="#{addNewEvent}" />
+    </form>
+</div>
