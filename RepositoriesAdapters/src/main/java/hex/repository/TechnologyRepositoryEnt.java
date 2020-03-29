@@ -1,6 +1,7 @@
 package hex.repository;
 
 
+import hex.model.developers.DeveloperEnt;
 import hex.model.technologies.NodeJsEnt;
 import hex.model.technologies.ReactEnt;
 import hex.model.technologies.RubyOnRailsEnt;
@@ -25,10 +26,14 @@ public class TechnologyRepositoryEnt implements ITechnologyRepositoryEnt {
     }
 
     @Override
-    public Optional<TechnologyEnt> selectTechnologyByName(String technologyName) {
-        return technologies.stream()
-                .filter(technology -> technology.getTechnologyName().equals(technologyName))
-                .findFirst();
+    public List<TechnologyEnt> selectTechnologyByName(String technologyName) {
+        List<TechnologyEnt> technologiesList = new ArrayList<>();
+        for (TechnologyEnt technology : technologies) {
+            if (technology.getTechnologyName().equals(technologyName)) {
+                technologiesList.add(technology);
+            }
+        }
+        return technologiesList;
     }
 
     @Override

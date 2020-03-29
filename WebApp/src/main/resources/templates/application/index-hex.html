@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml" lang="en" >
+<div th:replace="fragments/head-hex :: head-hex"></div>
+<body>
+    <div th:replace="fragments/navbar-hex :: navbar-hex"></div>
+    <div class="app-container">
+        <div th:replace="fragments/sidebar-hex :: sidebar-hex"></div>
+        <div th:replace="${page} :: ${template}"></div>
+    </div>
+    <div th:replace="fragments/footer-hex :: footer-hex"></div>
+</body>
+</html>

@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface ITechnologyRepositoryEnt {
-    Optional<TechnologyEnt> selectTechnologyByName(String technologyName);
+    List<TechnologyEnt> selectTechnologyByName(String technologyName);
     List<TechnologyEnt> getAllTechnologies();
     List<TechnologyEnt>  getAllTechnologiesFrontEnd();
     List<TechnologyEnt> getAllTechnologiesBackEnd();

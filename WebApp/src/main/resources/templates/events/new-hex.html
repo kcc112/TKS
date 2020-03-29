@@ -1,0 +1,25 @@
+<div xmlns:th="http://www.w3.org/1999/xhtml" class="d-flex justify-content-center">
+    <div class="d-flex flex-column">
+        <h1 th:text="#{addNewEvent}"></h1>
+        <form class="form-group"  action="#" th:action="@{/events}" th:object="${event}" method="post">
+            <label for="selectUser" th:text="#{selectUser}"></label>
+            <select class="form-control" id="selectUser" th:field="${user.userId}">
+                <option th:each="user : ${users}"
+                        th:value="${user.userId}"
+                        th:text="${user.userName + ' ' + user.userSurname}">
+                </option>
+            </select>
+            <label for="selectDeveloper" th:text="#{selectDeveloper}"></label>
+            <select class="form-control" id="selectDeveloper" th:field="${developer.developerId}">
+                <option th:each="developer : ${developers}"
+                        th:value="${developer.developerId}"
+                        th:text="${developer.toString()}">
+                </option>
+            </select>
+            <div class="button-container">
+                <input class="btn btn-primary" type="submit" th:value="#{submit}" />
+                <input class="btn btn-danger" type="reset" th:value="#{reset}" />
+            </div>
+        </form>
+    </div>
+</div>

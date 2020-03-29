@@ -1,6 +1,12 @@
 package hex.repository;
 
+import hex.model.developers.BackendEnt;
 import hex.model.developers.DeveloperEnt;
+import hex.model.developers.FrontEndEnt;
+import hex.model.technologies.NodeJsEnt;
+import hex.model.technologies.ReactEnt;
+import hex.model.technologies.RubyOnRailsEnt;
+import hex.model.technologies.TechnologyEnt;
 import hex.repository.interfaces.IDeveloperRepositoryEnt;
 import org.springframework.stereotype.Repository;
 
@@ -13,6 +19,15 @@ import java.util.UUID;
 public class DeveloperRepositoryEnt implements IDeveloperRepositoryEnt {
 
     private List<DeveloperEnt> developers = new ArrayList<>();
+
+    public DeveloperRepositoryEnt() {
+        TechnologyEnt rubyOnRails = new RubyOnRailsEnt();
+        TechnologyEnt react = new ReactEnt();
+        TechnologyEnt nodeJs = new NodeJsEnt();
+        developers.add(new BackendEnt("Ernest","Kowalski", rubyOnRails, UUID.randomUUID()));
+        developers.add(new FrontEndEnt("Wiktor","Kowalski", react, UUID.randomUUID()));
+        developers.add(new BackendEnt("Bartek","Kowalski", nodeJs, UUID.randomUUID()));
+    }
 
     @Override
     public void addDeveloper(UUID id, DeveloperEnt developer) {

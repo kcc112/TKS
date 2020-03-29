@@ -1,0 +1,52 @@
+<div th:fragment="info" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div class="d-flex flex-column">
+        <h1 th:text="#{developerInfo}"></h1>
+        <table class="table">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col" th:text="#{name}"></th>
+                <th scope="col" th:text="#{surname}"></th>
+                <th scope="col" th:text="#{technologyName}"></th>
+                <th th:if="${(developer.dummyAttribute != null)}" scope="col" th:text="#{dummyAttribute}"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <span th:text="${developer.developerName}"></span>
+                </td>
+                <td>
+                    <span th:text="${developer.developerSurname}"></span>
+                </td>
+                <td>
+                    <span th:text="${developer.developerTechnology.technologyName}"></span>
+                </td>
+                <td th:if="${(developer.dummyAttribute != null)}">
+                    <span th:text="${developer.dummyAttribute}"></span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div th:if="${developer.getEvent() != null}" >
+            <h1 th:text="#{userInfo}"></h1>
+            <table class="table">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col" th:text="#{clientName}"></th>
+                    <th scope="col" th:text="#{clientSurname}"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="event : ${developer.getEvent()}">
+                    <td>
+                        <span th:text="${event.user.userName}"></span>
+                    </td>
+                    <td>
+                        <span th:text="${event.user.userSurname}"></span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

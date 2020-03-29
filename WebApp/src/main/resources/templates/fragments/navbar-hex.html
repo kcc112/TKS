@@ -1,0 +1,20 @@
+<div th:fragment="navbar-hex" xmlns:th="http://www.w3.org/1999/xhtml">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <h1 class="navbar-brand" th:text="#{${pageName}}"></h1>
+        <form th:action="@{/users/search}" th:if="${page == 'users/index'}" class="form-inline my-2 my-lg-0">
+            <input th:name="name" class="form-control mr-sm-2" type="search" th:placeholder="#{searchByName}" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" th:text="#{search}"></button>
+        </form>
+        <form th:action="@{/developers/search}" th:if="${page == 'developers/index'}" class="form-inline my-2 my-lg-0">
+            <input th:name="search" id="search" class="form-control mr-sm-2" type="search" th:placeholder="#{searchByName}" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" th:text="#{search}"></button>
+        </form>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <form th:action="@{/logout}" class="form-inline my-2 my-lg-0">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" th:text="#{logout}"></button>
+                </form>
+            </li>
+        </ul>
+    </nav>
+</div>

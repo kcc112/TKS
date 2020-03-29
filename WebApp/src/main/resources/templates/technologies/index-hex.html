@@ -1,0 +1,21 @@
+<div th:fragment="index" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div>
+        <table class="table">
+            <thead  class="thead-dark">
+                <tr>
+                    <th scope="col" th:text="#{technologyName}"></th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr th:if="${technologies.empty}">
+                <td colspan="2" th:text="#{empty}"></td>
+            </tr>
+            <tr th:each="technology : ${technologies}">
+                <td>
+                    <span th:text="${technology.technologyName}"></span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
